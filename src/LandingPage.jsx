@@ -1308,16 +1308,14 @@ const LandingPage = () => {
 								/>
 							</Grid>
 							<Grid item size={{ xs: 12, sm: 3.5 }}>
-								<a href="#emailForm">
-									<PrimaryButton
-										type="submit"
-										fullWidth={true}
-										content="Get Early Access"
-										color={color.primary}
-										bgcolor={color.white}
-										p="14px 0px"
-									/>
-								</a>
+								<PrimaryButton
+									type="submit"
+									fullWidth={true}
+									content="Get Early Access"
+									color={color.primary}
+									bgcolor={color.white}
+									p="14px 0px"
+								/>
 							</Grid>
 						</Grid>
 						<Typography variant="body2" color={color.white} textAlign="center" mt={2}>
