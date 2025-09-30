@@ -19,13 +19,7 @@ const Header = () => {
 	const [drawerOpen, setDrawerOpen] = useState(false);
 	const isMobile = useMediaQuery("(max-width:1023px)");
 
-	const navLinks = [
-		{ path: "#features", label: "Features" },
-		{ path: "#pricing", label: "Pricing" },
-		{ path: "#testimonials", label: "Testimonials" },
-		{ path: "#resources", label: "Resources" },
-		{ path: "#company", label: "Company" },
-	];
+	const navLinks = [{ path: "#pricing", label: "Pricing" }];
 
 	return (
 		<Box
@@ -100,16 +94,9 @@ const Header = () => {
 					<Box>
 						{!isMobile ? (
 							<>
-								<Button
-									sx={{
-										textTransform: "inherit",
-										color: color.gray,
-										fontSize: 16,
-									}}
-								>
-									Sign In
-								</Button>
-								<PrimaryButton content="Get Early Access" ml={2} />
+								<a href="#emailForm">
+									<PrimaryButton content="Get Early Access" />
+								</a>
 							</>
 						) : (
 							<IconButton onClick={() => setDrawerOpen(true)}>
@@ -136,10 +123,9 @@ const Header = () => {
 						))}
 					</List>
 					<Box sx={{ mt: 2 }}>
-						<Button fullWidth sx={{ textTransform: "inherit", color: color.gray }}>
-							Sign In
-						</Button>
-						<PrimaryButton content="Get Early Access" fullWidth sx={{ mt: 1 }} />
+						<a href="#emailForm">
+							<PrimaryButton content="Get Early Access" fullWidth />
+						</a>
 					</Box>
 				</Box>
 			</Drawer>

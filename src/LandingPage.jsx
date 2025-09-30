@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
 import {
-	ArrowForward,
 	Check,
 	CheckCircle,
 	Circle,
@@ -22,31 +21,19 @@ import {
 	Typography,
 	CardMedia,
 	Rating,
-	FormControlLabel,
-	Checkbox,
-	Button,
 	Accordion,
 	AccordionSummary,
 	AccordionDetails,
 } from "@mui/material";
 import { color } from "./lib/color";
 import PrimaryButton from "./components/PrimaryButton";
-import {
-	FaChartLine,
-	FaClipboardList,
-	FaCloud,
-	FaGift,
-	FaHeadset,
-	FaLock,
-	FaRocket,
-} from "react-icons/fa";
+import { FaChartLine, FaClipboardList, FaCloud, FaHeadset, FaLock, FaRocket } from "react-icons/fa";
 import { FaChartGantt, FaListCheck, FaMobileScreen, FaUsersGear } from "react-icons/fa6";
 import FormInput from "./components/FormInput";
 
 const LandingPage = () => {
 	const [step, setStep] = useState(0);
 	const [close, setClose] = useState(true);
-	const [rememberMe, setRememberMe] = useState(false);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -133,56 +120,34 @@ const LandingPage = () => {
 									WebkitTextFillColor: "transparent",
 								}}
 							>
-								Your product deserves a confident release
+								Launch with clarity. Lead with confidence.
 							</Typography>
 							<Typography variant="h6" color={color.gray} mt={3} fontWeight={400}>
-								Plan, build, test, and ship with confidence. Built for fast-moving
-								teams who want clarity, alignment, and control — from kickoff to
-								release.
+								From kickoff to release, LaunchOKR keeps your team aligned, your
+								roadmap clear, and your launch on track.
 							</Typography>
 							<Grid container mt={3} spacing={3}>
 								<Grid item size={{ xs: 12, sm: 5 }}>
-									<PrimaryButton
-										fullWidth={true}
-										content={
-											<>
-												<IconButton
-													sx={{
-														m: 0,
-														mr: 0.5,
-														color: color.white,
-													}}
-												>
-													<FaRocket style={{ fontSize: 20 }} />
-												</IconButton>{" "}
-												Get Early Access
-											</>
-										}
-										p="16px 0px"
-									/>
-								</Grid>
-								<Grid item size={{ xs: 12, sm: 5 }}>
-									<PrimaryButton
-										fullWidth={true}
-										content={
-											<>
-												<IconButton
-													sx={{
-														m: 0,
-														mr: 0.5,
-														color: color.textGray,
-													}}
-												>
-													<FaRocket style={{ fontSize: 20 }} />
-												</IconButton>{" "}
-												Watch Demo
-											</>
-										}
-										p="16px 0px"
-										bgcolor="transparent"
-										border={`1px solid ${color.textGray}`}
-										color={color.textGray}
-									/>
+									<a href="#emailForm">
+										<PrimaryButton
+											fullWidth={true}
+											content={
+												<>
+													<IconButton
+														sx={{
+															m: 0,
+															mr: 0.5,
+															color: color.white,
+														}}
+													>
+														<FaRocket style={{ fontSize: 20 }} />
+													</IconButton>{" "}
+													Get Early Access
+												</>
+											}
+											p="16px 0px"
+										/>
+									</a>
 								</Grid>
 							</Grid>
 							<Grid container alignItems="center" mt={4} pt={2}>
@@ -326,7 +291,7 @@ const LandingPage = () => {
 												}}
 											/>
 										),
-										label: "Product Development",
+										label: "Release Plan",
 										labelBgcolor: "#F0FDF4",
 										percentage: "100%",
 										percentageColor: "#166534",
@@ -342,7 +307,7 @@ const LandingPage = () => {
 												}}
 											/>
 										),
-										label: "QA Testing",
+										label: "OKR Tracker",
 										labelBgcolor: "#EFF6FF",
 										percentage: "60%",
 										percentageColor: "#1E40AF",
@@ -358,7 +323,7 @@ const LandingPage = () => {
 												}}
 											/>
 										),
-										label: "Marketing Prep",
+										label: "Coverage",
 										labelBgcolor: "#FEFCEB",
 										percentage: "60%",
 										percentageColor: "#854D0E",
@@ -374,7 +339,7 @@ const LandingPage = () => {
 												}}
 											/>
 										),
-										label: "Operations Setup",
+										label: "Launch Ready",
 										labelBgcolor: "#F9FAFB",
 										percentage: "30%",
 										percentageColor: "#1F2937",
@@ -525,8 +490,8 @@ const LandingPage = () => {
 						mb="4rem"
 						textAlign="center"
 					>
-						Most teams scramble before launch day. LaunchOKR gives you clarity,
-						alignment, and control — from kickoff to release.
+						Launch day shouldn’t feel like a scramble. LaunchOKR gives you the structure
+						and foresight to stay ahead — every step of the way.
 					</Typography>
 					<Grid container spacing={5} alignItems="center">
 						<Grid item size={{ xs: 12, md: 6 }}>
@@ -696,7 +661,6 @@ const LandingPage = () => {
 					</Grid>
 				</Box>
 			</Box>
-
 			{/* ========== successful launch ========== */}
 			<Box
 				sx={{
@@ -723,140 +687,45 @@ const LandingPage = () => {
 					<Grid container spacing={4} mb="4rem">
 						{[
 							{
-								icon: <FaClipboardList style={{ fontSize: 24 }} />,
-								iconBgcolor: "#F3E8FF",
-								iconColor: color.primary,
-								label: "Smart Checklists",
-								content:
-									"Dynamic checklists that adapt to your workflow, with conditional logic and dependency tracking.",
-								points: [
-									{
-										tag: "Template library",
-									},
-									{
-										tag: "Custom fields",
-									},
-									{
-										tag: "Conditional logic",
-									},
-									{
-										tag: "Bulk operations",
-									},
-								],
-							},
-							{
 								icon: <FaChartGantt style={{ fontSize: 24 }} />,
 								iconBgcolor: "#DBEAFE",
 								iconColor: "#2563eb",
-								label: "Timeline Management",
+								label: "Plan with Precision",
 								content:
-									"Visual timeline with milestone tracking, critical path analysis, and automatic scheduling.",
+									"Define OKRs, assign accountable owners, and align milestones across sprints — so every release is traceable and on time.",
 								points: [
-									{
-										tag: "Gantt charts",
-									},
-									{
-										tag: "Critical path",
-									},
-									{
-										tag: "Buffer time",
-									},
-									{
-										tag: "Auto-scheduling",
-									},
+									{ tag: "OKR alignment" },
+									{ tag: "Milestone tracking" },
+									{ tag: "Accountable ownership" },
+									{ tag: "Sprint planning" },
 								],
 							},
 							{
-								icon: <FaUsersGear style={{ fontSize: 32 }} />,
-								iconBgcolor: "#DCFCE7",
-								iconColor: "#22c55e",
-								label: "Team Collaboration",
+								icon: <FaClipboardList style={{ fontSize: 24 }} />,
+								iconBgcolor: "#F3E8FF",
+								iconColor: "#9333ea",
+								label: "Smart Checklist",
 								content:
-									"Real-time collaboration tools with role-based permissions and communication channels.",
+									"Integrate QA workflows, code changes, and test coverage into one launch-ready view. Catch issues early, reduce risk, and ship confidently.",
 								points: [
-									{
-										tag: "Team workspaces",
-									},
-									{
-										tag: "Role management",
-									},
-									{
-										tag: "In-app chat",
-									},
-									{
-										tag: "@mentions",
-									},
-								],
-							},
-							{
-								icon: (
-									<>
-										{step === 0 && <ErrorOutline style={{ fontSize: 30 }} />}
-										{step === 1 && <HelpOutline style={{ fontSize: 30 }} />}
-									</>
-								),
-								iconBgcolor: "#FEE2E2",
-								iconColor: "#E53935",
-								label: "Risk Management",
-								content:
-									"Proactive risk identification and mitigation with automated alerts and contingency planning.",
-								points: [
-									{
-										tag: "Risk assessment",
-									},
-									{
-										tag: "Impact analysis",
-									},
-									{
-										tag: "Mitigation plans",
-									},
-									{
-										tag: "Escalation rules",
-									},
+									{ tag: "QA workflows" },
+									{ tag: "Code reviews" },
+									{ tag: "Test coverage" },
+									{ tag: "Risk reduction" },
 								],
 							},
 							{
 								icon: <FaChartLine style={{ fontSize: 24 }} />,
 								iconBgcolor: "#FEF9C3",
-								iconColor: "#FDD835",
-								label: "Analytics & Insights",
+								iconColor: "#F59E0B",
+								label: "Monitor Impact",
 								content:
-									"Comprehensive analytics with custom dashboards and automated reporting capabilities.",
+									"Track adoption, user feedback, and post-launch metrics with precision — so you can iterate fast and prove ROI.",
 								points: [
-									{
-										tag: "Custom dashboards",
-									},
-									{
-										tag: "Performance metrics",
-									},
-									{
-										tag: "Trend analysis",
-									},
-									{
-										tag: "Export reports",
-									},
-								],
-							},
-							{
-								icon: <Extension style={{ fontSize: 24 }} />,
-								iconBgcolor: "#E0E7FF",
-								iconColor: "#3949AB",
-								label: "Integrations",
-								content:
-									"Seamless integration with your existing tools and workflows for maximum productivity.",
-								points: [
-									{
-										tag: "Slack/Teams",
-									},
-									{
-										tag: "Jira/Asana",
-									},
-									{
-										tag: "GitHub/GitLab",
-									},
-									{
-										tag: "Custom APIs",
-									},
+									{ tag: "User adoption" },
+									{ tag: "Feedback loops" },
+									{ tag: "Post-launch metrics" },
+									{ tag: "ROI tracking" },
 								],
 							},
 						].map((item, index) => (
@@ -919,12 +788,8 @@ const LandingPage = () => {
 							</Grid>
 						))}
 					</Grid>
-					<Box textAlign="center">
-						<PrimaryButton content="Explore All Features" />
-					</Box>
 				</Box>
 			</Box>
-
 			{/* ========== Built for Fast-Moving Teams ========== */}
 			<Box
 				sx={{
@@ -1098,7 +963,7 @@ const LandingPage = () => {
 						<Grid container spacing={4} alignItems="center">
 							<Grid item size={{ xs: 12, md: 6 }}>
 								<Typography variant="h3" color={color.black} mb={3}>
-									Trusted by QA Leaders Worldwide
+									Trusted by Tech Leaders Worldwide
 								</Typography>
 								<Typography
 									variant="subtitle2"
@@ -1244,282 +1109,66 @@ const LandingPage = () => {
 					</Box>
 				</Box>
 			</Box>
-
 			{/* ========== Simple, Transparent Pricing ========== */}
-			<Box py="80px">
-				<Box className="container">
-					<Typography variant="h2" color={color.black} textAlign="center" mb={3}>
-						Simple, Transparent Pricing
+			<Box py="80px" id="pricing">
+				<Box className="container" textAlign="center">
+					{/* Headline */}
+					<Typography variant="h2" color={color.black} mb={3}>
+						Built for Fast-Moving Tech Teams. Free for Early Access.
 					</Typography>
+
+					{/* Subheadline */}
 					<Typography
 						variant="h6"
 						fontWeight={400}
 						color={color.gray}
 						maxWidth={{ xs: "100%", md: "47rem" }}
 						mx="auto"
-						mb="4rem"
-						textAlign="center"
+						mb={4}
 					>
-						Choose the plan that fits your team size and launch complexity. All plans
-						include our core features and 24/7 support.
+						Join the Founding Teams Program and get:
 					</Typography>
-					<Grid container justifyContent="center" spacing={4}>
-						<Grid
-							item
-							size={{ xs: 12, md: 3.7 }}
-							sx={{
-								bgcolor: color.white,
-								border: "1px solid #e9ecef",
-								p: 4,
-								borderRadius: 3,
-								boxShadow: 1,
-								"&:hover": {
-									transform: "scale(1.02)",
-								},
-							}}
-						>
-							<Typography variant="h5" color={color.black} textAlign="center">
-								Starter
-							</Typography>
-							<Typography
-								variant="subtitle2"
-								color={color.gray}
-								mb={3}
-								textAlign="center"
-							>
-								Perfect for small teams and simple launches
-							</Typography>
-							<Typography variant="h3" color={color.black} textAlign="center" mb={3}>
-								$29{" "}
-								<Typography component="span" fontSize={16} color={color.gray}>
-									/month
-								</Typography>
-							</Typography>
-							<PrimaryButton
-								fullWidth={true}
-								content="Start Free Trial"
-								bgcolor="#f3f4f6"
-								color={color.black}
-							/>
-							{[
-								{ tag: "Up to 5 team members" },
-								{ tag: "10 active projects" },
-								{ tag: "Basic templates" },
-								{ tag: "Email support" },
-								{ tag: "Basic integrations" },
-							].map((item, index) => (
-								<Box
-									key={index}
-									sx={{
-										display: "flex",
-										flexDirection: "row",
-										alignItems: "center",
-										mt: index == 0 ? 3 : 1,
-									}}
-								>
-									<Check style={{ color: "#22c55e", fontSize: 16 }} />
-									<Typography variant="body1" color={color.black} ml={0.75}>
-										{item.tag}
-									</Typography>
-								</Box>
-							))}
-						</Grid>
 
-						<Grid
-							item
-							size={{ xs: 12, md: 3.7 }}
-							sx={{
-								bgcolor: color.primary,
-								p: 4,
-								borderRadius: 3,
-								boxShadow: 1,
-								transform: "scale(1.02)",
-								"&:hover": {
-									transform: "scale(1.03)",
-								},
-							}}
-						>
-							<Typography variant="h5" color={color.white} textAlign="center">
-								Professional
-							</Typography>
-							<Typography
-								variant="subtitle2"
-								color={color.white}
-								mb={3}
-								textAlign="center"
-							>
-								Ideal for growing teams with complex launches{" "}
-							</Typography>
-							<Typography variant="h3" color={color.white} textAlign="center" mb={3}>
-								$99{" "}
-								<Typography component="span" fontSize={16} color={color.white}>
-									/month
-								</Typography>
-							</Typography>
-							<PrimaryButton
-								fullWidth={true}
-								content="Start Free Trial"
-								bgcolor={color.white}
-								color={color.primary}
-							/>
-							{[
-								{ tag: "Up to 5 team members" },
-								{ tag: "Unlimited projects" },
-								{ tag: "Advanced templates" },
-								{ tag: "Priority support" },
-								{ tag: "All integrations" },
-								{ tag: "Custom workflows" },
-								{ tag: "Advanced analytics" },
-							].map((item, index) => (
-								<Box
-									key={index}
-									sx={{
-										display: "flex",
-										flexDirection: "row",
-										alignItems: "center",
-										mt: index == 0 ? 3 : 1,
-									}}
-								>
-									<Check style={{ color: "#22c55e", fontSize: 16 }} />
-									<Typography variant="body1" color={color.white} ml={0.75}>
-										{item.tag}
-									</Typography>
-								</Box>
-							))}
-						</Grid>
-
-						<Grid
-							item
-							size={{ xs: 12, md: 3.7 }}
-							sx={{
-								bgcolor: color.white,
-								border: "1px solid #e9ecef",
-								p: 4,
-								boxShadow: 1,
-								borderRadius: 3,
-								"&:hover": {
-									transform: "scale(1.02)",
-								},
-							}}
-						>
-							<Typography variant="h5" color={color.black} textAlign="center">
-								Enterprise{" "}
-							</Typography>
-							<Typography
-								variant="subtitle2"
-								color={color.gray}
-								mb={3}
-								textAlign="center"
-							>
-								For large organizations with enterprise needs
-							</Typography>
-							<Typography variant="h3" color={color.black} textAlign="center" mb={3}>
-								Custom
-							</Typography>
-							<PrimaryButton
-								fullWidth={true}
-								content="Contact Sales"
-								bgcolor={color.primary}
-								color={color.white}
-							/>
-							{[
-								{ tag: "Unlimited team members" },
-								{ tag: "Unlimited projects" },
-								{ tag: "Custom templates" },
-								{ tag: "Dedicated support" },
-								{ tag: "Custom integrations" },
-								{ tag: "White-label options" },
-								{ tag: "Advanced security" },
-								{ tag: "SLA guarantee" },
-							].map((item, index) => (
-								<Box
-									key={index}
-									sx={{
-										display: "flex",
-										flexDirection: "row",
-										alignItems: "center",
-										mt: index == 0 ? 3 : 1,
-									}}
-								>
-									<Check style={{ color: "#22c55e", fontSize: 16 }} />
-									<Typography variant="body1" color={color.black} ml={0.75}>
-										{item.tag}
-									</Typography>
-								</Box>
-							))}
-						</Grid>
-					</Grid>
-					<Typography variant="subtitle2" color={color.gray} textAlign="center" mt={5}>
-						All plans include a 14-day free trial. No credit card required.
-					</Typography>
+					{/* Checklist items */}
 					<Box
 						sx={{
 							display: "flex",
-							flexDirection: "row",
-							justifyContent: "center",
+							flexDirection: "column",
+							gap: 2,
+							alignItems: "center",
+							mb: 4,
 						}}
 					>
-						<Box
-							sx={{
-								display: "flex",
-								flexDirection: "row",
-								alignItems: "center",
-								gap: 1,
-								color: color.gray,
-								fontWeight: 600,
-								p: 1,
-								px: 2,
-								width: "fit-content",
-								borderRadius: 18,
-							}}
-						>
-							{step === 0 && <ErrorOutline sx={{ color: "#4CAF50", fontSize: 18 }} />}
-							{step === 1 && <HelpOutline sx={{ color: "#4CAF50", fontSize: 18 }} />}
-							<Typography variant="body2" fontWeight={500}>
-								SOC 2 Compliant
+						{[
+							"✅ Free access during beta",
+							"🧪 Personalized launch audit",
+							"🚀 Priority onboarding",
+							"💸 Lifetime discount when we go live",
+						].map((item, index) => (
+							<Typography
+								key={index}
+								variant="subtitle1"
+								color={color.black}
+								fontWeight={500}
+							>
+								{item}
 							</Typography>
-						</Box>
-
-						<Box
-							sx={{
-								display: "flex",
-								flexDirection: "row",
-								alignItems: "center",
-								gap: 1,
-								color: color.gray,
-								fontWeight: 600,
-								p: 1,
-								px: 2,
-								width: "fit-content",
-								borderRadius: 18,
-							}}
-						>
-							<FaLock style={{ color: "#4CAF50" }} fontSize="16px" />
-							<Typography variant="body2" fontWeight={500}>
-								256-bit Encryption{" "}
-							</Typography>
-						</Box>
-
-						<Box
-							sx={{
-								display: "flex",
-								flexDirection: "row",
-								alignItems: "center",
-								gap: 1,
-								color: color.gray,
-								fontWeight: 600,
-								p: 1,
-								px: 2,
-								width: "fit-content",
-								borderRadius: 18,
-							}}
-						>
-							<FaHeadset style={{ color: "#4CAF50" }} fontSize="16px" />
-							<Typography variant="body2" fontWeight={500}>
-								24/7 Support
-							</Typography>
-						</Box>
+						))}
 					</Box>
+
+					{/* CTA Button */}
+					<a href="#emailForm">
+						<PrimaryButton
+							content="Request Early Access"
+							bgcolor={color.primary}
+							color={color.white}
+							sx={{ px: 4, py: 1.5, fontSize: "1.1rem", fontWeight: 600 }}
+						/>
+					</a>
+					{/* Subtext */}
+					<Typography variant="subtitle2" color={color.gray} mt={2} fontStyle="italic">
+						Limited to the first 100 teams — secure your spot
+					</Typography>
 				</Box>
 			</Box>
 
@@ -1614,8 +1263,9 @@ const LandingPage = () => {
 					</Box>
 				</Box>
 			</Box>
-
+			{/* ========== Ready to Transform Your Launch Process? ========== */}
 			<Box
+				id="emailForm"
 				sx={{
 					py: "80px",
 					background: "linear-gradient(to right, #9333ea, #2563eb)",
@@ -1658,14 +1308,16 @@ const LandingPage = () => {
 								/>
 							</Grid>
 							<Grid item size={{ xs: 12, sm: 3.5 }}>
-								<PrimaryButton
-									type="submit"
-									fullWidth={true}
-									content="Get Early Access"
-									color={color.primary}
-									bgcolor={color.white}
-									p="14px 0px"
-								/>
+								<a href="#emailForm">
+									<PrimaryButton
+										type="submit"
+										fullWidth={true}
+										content="Get Early Access"
+										color={color.primary}
+										bgcolor={color.white}
+										p="14px 0px"
+									/>
+								</a>
 							</Grid>
 						</Grid>
 						<Typography variant="body2" color={color.white} textAlign="center" mt={2}>
