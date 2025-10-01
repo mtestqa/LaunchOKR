@@ -1,7 +1,6 @@
 import { Box, Grid, IconButton, Typography } from "@mui/material";
 import { color } from "../../lib/color";
 import { FaRocket } from "react-icons/fa";
-import { Instagram, LinkedIn, Twitter, YouTube } from "@mui/icons-material";
 
 const Footer = () => {
 	return (
@@ -44,51 +43,6 @@ const Footer = () => {
 							test, and ship products with confidence. Trusted by QA leaders
 							worldwide.
 						</Typography>
-						<Box
-							sx={{
-								display: "flex",
-								flexDirection: "row",
-								alignItems: "center",
-							}}
-						>
-							{[
-								{
-									icon: <Twitter sx={{ fontSize: 18 }} />,
-								},
-								{
-									icon: <LinkedIn sx={{ fontSize: 18 }} />,
-								},
-								{
-									icon: <Instagram sx={{ fontSize: 18 }} />,
-								},
-								{
-									icon: <YouTube sx={{ fontSize: 18 }} />,
-								},
-							].map((item, index) => (
-								<Box
-									key={index}
-									component="a"
-									href="#emailForm"
-									sx={{
-										width: "2.5rem",
-										height: "2.5rem",
-										borderRadius: "0.5rem",
-										bgcolor: "#1F2937",
-										color: color.white,
-										display: "flex",
-										flexDirection: "row",
-										justifyContent: "center",
-										alignItems: "center",
-										ml: index == 0 ? 0 : 2,
-										"&:hover": {
-											bgcolor: color.primary,
-										},
-									}}
-								>
-									{item.icon}
-								</Box>
-							))}
-						</Box>
 					</Grid>
 				</Grid>
 				<Box

@@ -7,7 +7,6 @@ import {
 	Error,
 	ErrorOutline,
 	ExpandMore,
-	Extension,
 	Groups,
 	HelpOutline,
 	History,
@@ -27,14 +26,14 @@ import {
 	Accordion,
 	AccordionSummary,
 	AccordionDetails,
+	TextField,
 } from "@mui/material";
 import { color } from "./lib/color";
 import PrimaryButton from "./components/PrimaryButton";
-import { FaChartLine, FaClipboardList, FaCloud, FaHeadset, FaLock, FaRocket } from "react-icons/fa";
-import { FaChartGantt, FaListCheck, FaMobileScreen, FaUsersGear } from "react-icons/fa6";
-import FormInput from "./components/FormInput";
-import { MdOutlineCheckCircle } from "react-icons/md";
-import { AiOutlineCheckCircle } from "react-icons/ai";
+import { FaChartLine, FaClipboardList, FaCloud, FaRocket } from "react-icons/fa";
+import { FaChartGantt, FaListCheck, FaMobileScreen } from "react-icons/fa6";
+import { useForm } from "react-hook-form";
+import { ErrorToaster, SuccessToaster } from "./components/Toaster";
 
 const LandingPage = () => {
 	const [step, setStep] = useState(0);
@@ -47,6 +46,45 @@ const LandingPage = () => {
 
 		return () => clearInterval(interval);
 	}, []);
+
+	const blockedDomains = [
+		"gmail.com",
+		"yahoo.com",
+		"outlook.com",
+		"hotmail.com",
+		"aol.com",
+		"icloud.com",
+	];
+
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		reset,
+	} = useForm();
+
+	const onSubmit = async (data) => {
+		try {
+			const response = await fetch("https://formspree.io/f/xjkakvgy", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data),
+			});
+
+			if (response.ok) {
+				SuccessToaster("Form submitted successfully");
+				reset();
+			} else {
+				const errorData = await response.json();
+				throw new Error(errorData.error || "Form submission failed");
+			}
+		} catch (error) {
+			console.error(error);
+			ErrorToaster(error.message);
+		}
+	};
 
 	return (
 		<Fragment>
@@ -1138,7 +1176,7 @@ const LandingPage = () => {
 				</Box>
 			</Box>
 			{/* ========== Simple, Transparent Pricing ========== */}
-			<Box py="80px" id="pricing">
+			<Box py="80px">
 				<Box className="container" textAlign="center">
 					{/* Headline */}
 					<Typography variant="h2" color={color.black} mb={3}>
@@ -1318,22 +1356,56 @@ const LandingPage = () => {
 					</Typography>
 					<Box
 						component="form"
-						action="https://formspree.io/f/xjkakvgy"
-						method="POST"
+						onSubmit={handleSubmit(onSubmit)}
 						sx={{
 							maxWidth: { xs: "100%", md: "48rem" },
 							mx: "auto",
 						}}
 					>
-						<Grid container spacing={1} justifyContent="center" alignItems="center">
+						<Grid container spacing={1} justifyContent="center">
 							<Grid item size={{ xs: 12, sm: 7 }}>
-								<FormInput
-									placeholder="Enter your work email"
-									name="email"
-									mb={0}
-									bgcolor={color.white}
-									colors={color.black}
+								<TextField
+									fullWidth
+									type="email"
+									placeholder="Enter your corporate email"
+									{...register("email", {
+										required: "Email is required",
+										validate: (value) => {
+											const domain = value.split("@")[1];
+											if (blockedDomains.includes(domain)) {
+												return "Please use your corporate email (no Gmail, Yahoo, etc.)";
+											}
+											return true;
+										},
+									})}
+									sx={{
+										"& .MuiOutlinedInput-root": {
+											bgcolor: color.white,
+											color: color.black,
+											borderRadius: 2,
+											"& fieldset": {
+												border: `1px solid ${color.white}`,
+											},
+											"&:hover fieldset": {
+												border: `1px solid ${color.white}`,
+											},
+											"&.Mui-focused fieldset": {
+												border: `2px solid ${color.white}`,
+											},
+										},
+										input: {
+											color: color.black,
+										},
+										"& .MuiInputLabel-root": {
+											color: color.black,
+										},
+									}}
 								/>
+								{errors.email && (
+									<Typography variant="body2" color="error" mt={0.5}>
+										{errors.email.message}
+									</Typography>
+								)}
 							</Grid>
 							<Grid item size={{ xs: 12, sm: 3.5 }}>
 								<PrimaryButton
