@@ -10,6 +10,7 @@ export default function PrimaryButton({
 	color,
 	fullWidth,
 	type,
+	btnStyle,
 }) {
 	return (
 		<Button
@@ -26,6 +27,7 @@ export default function PrimaryButton({
 				bgcolor: bgcolor,
 				border: border,
 				color: color,
+				...btnStyle,
 			}}
 		>
 			{content}

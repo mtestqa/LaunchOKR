@@ -10,8 +10,11 @@ import {
 	Extension,
 	Groups,
 	HelpOutline,
+	History,
 	Notifications,
+	Security,
 	StarRateRounded,
+	TaskAlt,
 	WatchLater,
 } from "@mui/icons-material";
 import {
@@ -30,6 +33,8 @@ import PrimaryButton from "./components/PrimaryButton";
 import { FaChartLine, FaClipboardList, FaCloud, FaHeadset, FaLock, FaRocket } from "react-icons/fa";
 import { FaChartGantt, FaListCheck, FaMobileScreen, FaUsersGear } from "react-icons/fa6";
 import FormInput from "./components/FormInput";
+import { MdOutlineCheckCircle } from "react-icons/md";
+import { AiOutlineCheckCircle } from "react-icons/ai";
 
 const LandingPage = () => {
 	const [step, setStep] = useState(0);
@@ -105,7 +110,7 @@ const LandingPage = () => {
 								{step === 0 && <ErrorOutline fontSize="12px" />}
 								{step === 1 && <HelpOutline fontSize="12px" />}
 								<Typography variant="body2" fontWeight={500}>
-									Built for Fast-Moving Teams
+									Launch with clarity. Lead with confidence.
 								</Typography>
 							</Box>
 							<Typography variant="h1" color={color.black} fontWeight={700} mt={3}>
@@ -118,9 +123,10 @@ const LandingPage = () => {
 									background: "linear-gradient(to right, #9333ea, #2563eb)",
 									WebkitBackgroundClip: "text",
 									WebkitTextFillColor: "transparent",
+									fontSize: 42,
 								}}
 							>
-								Launch with clarity. Lead with confidence.
+								Built for Fast-Moving Teams
 							</Typography>
 							<Typography variant="h6" color={color.gray} mt={3} fontWeight={400}>
 								From kickoff to release, LaunchOKR keeps your team aligned, your
@@ -684,7 +690,7 @@ const LandingPage = () => {
 						From planning to post-launch monitoring, LaunchOKR provides comprehensive
 						tools for every stage of your product release.
 					</Typography>
-					<Grid container spacing={4} mb="4rem">
+					<Grid container spacing={4}>
 						{[
 							{
 								icon: <FaChartGantt style={{ fontSize: 24 }} />,
@@ -753,7 +759,6 @@ const LandingPage = () => {
 											alignItems: "center",
 											justifyContent: "center",
 											flexShrink: 0,
-											mb: "1.5rem",
 										}}
 									>
 										{item.icon}
@@ -799,7 +804,7 @@ const LandingPage = () => {
 			>
 				<Box className="container">
 					<Typography variant="h2" color={color.black} textAlign="center" mb={3}>
-						Built for Fast-Moving Teams{" "}
+						Built for Fast-Moving Teams
 					</Typography>
 					<Typography
 						variant="h6"
@@ -975,55 +980,78 @@ const LandingPage = () => {
 									professionals and product teams at leading companies around the
 									globe.
 								</Typography>
-								<Box
-									sx={{
-										display: "flex",
-										flexDirection: "row",
-										alignItems: "center",
-										gap: 2,
-									}}
-								>
-									<Box>
+								<Grid container alignItems="center" spacing={2}>
+									<Grid
+										item
+										size={{ xs: 4 }}
+										sx={{
+											bgcolor: color.white,
+											boxShadow: 1,
+											borderRadius: 3,
+											px: 2,
+											py: 3,
+											textAlign: "center",
+										}}
+									>
+										<TaskAlt
+											sx={{ color: color.primary, fontSize: 40, mb: 1 }}
+										/>
 										<Typography
-											variant="h3"
-											color={color.primary}
+											variant="subtitle2"
+											color={color.black}
 											textAlign="center"
+											fontWeight={600}
 										>
-											50K+
+											50K+ Tests Executed
 										</Typography>
+									</Grid>
+									<Grid
+										item
+										size={{ xs: 4 }}
+										sx={{
+											bgcolor: color.white,
+											boxShadow: 1,
+											borderRadius: 3,
+											px: 2,
+											py: 3,
+											textAlign: "center",
+										}}
+									>
+										<Security
+											sx={{ color: color.secondary, fontSize: 40, mb: 1 }}
+										/>
 										<Typography
-											variant="body2"
-											color={color.gray}
+											variant="subtitle2"
+											color={color.black}
 											textAlign="center"
+											fontWeight={600}
 										>
-											Tests Executed
+											99.9% Uptime
 										</Typography>
-									</Box>
-									<Box>
-										<Typography variant="h3" color="#2563EB" textAlign="center">
-											99.9%
-										</Typography>
+									</Grid>
+									<Grid
+										item
+										size={{ xs: 4 }}
+										sx={{
+											bgcolor: color.white,
+											boxShadow: 1,
+											borderRadius: 3,
+											px: 2,
+											py: 3,
+											textAlign: "center",
+										}}
+									>
+										<History sx={{ color: "#16A34A", fontSize: 40, mb: 1 }} />
 										<Typography
-											variant="body2"
-											color={color.gray}
+											variant="subtitle2"
+											color={color.black}
 											textAlign="center"
+											fontWeight={600}
 										>
-											Uptime
+											24/7 Support
 										</Typography>
-									</Box>
-									<Box>
-										<Typography variant="h3" color="#16A34A" textAlign="center">
-											24/7
-										</Typography>
-										<Typography
-											variant="body2"
-											color={color.gray}
-											textAlign="center"
-										>
-											Support
-										</Typography>
-									</Box>
-								</Box>
+									</Grid>
+								</Grid>
 							</Grid>
 							<Grid item size={{ xs: 12, md: 6 }}>
 								<Grid container spacing={2}>
@@ -1114,7 +1142,7 @@ const LandingPage = () => {
 				<Box className="container" textAlign="center">
 					{/* Headline */}
 					<Typography variant="h2" color={color.black} mb={3}>
-						Built for Fast-Moving Tech Teams. Free for Early Access.
+						Free for Early Access.
 					</Typography>
 
 					{/* Subheadline */}

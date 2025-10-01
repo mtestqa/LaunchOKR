@@ -1,8 +1,7 @@
 import { Box, Grid, IconButton, Typography } from "@mui/material";
-import React from "react";
 import { color } from "../../lib/color";
 import { FaRocket } from "react-icons/fa";
-import { GitHub, LinkedIn, Twitter, YouTube } from "@mui/icons-material";
+import { Instagram, LinkedIn, Twitter, YouTube } from "@mui/icons-material";
 
 const Footer = () => {
 	return (
@@ -60,7 +59,7 @@ const Footer = () => {
 									icon: <LinkedIn sx={{ fontSize: 18 }} />,
 								},
 								{
-									icon: <GitHub sx={{ fontSize: 18 }} />,
+									icon: <Instagram sx={{ fontSize: 18 }} />,
 								},
 								{
 									icon: <YouTube sx={{ fontSize: 18 }} />,
@@ -69,7 +68,7 @@ const Footer = () => {
 								<Box
 									key={index}
 									component="a"
-									href="#"
+									href="#emailForm"
 									sx={{
 										width: "2.5rem",
 										height: "2.5rem",
@@ -104,7 +103,7 @@ const Footer = () => {
 					}}
 				>
 					<Typography variant="body2" color={color.lightGray}>
-						© 2024 LaunchOKR by Mtest Labs. All rights reserved.
+						© {new Date().getFullYear()} LaunchOKR by Mtest Labs. All rights reserved.
 					</Typography>
 					<Typography variant="body2" color={color.lightGray}>
 						Built with ❤️ for product teams
